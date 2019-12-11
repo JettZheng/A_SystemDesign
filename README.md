@@ -1,2 +1,1 @@
-# SystemDesign
-# SystemDesign
+# System Design Notes
