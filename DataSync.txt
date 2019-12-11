@@ -1,0 +1,14 @@
+1.update local db
+2.send event to other nodes to notify update
+
+two steps should be atomic!
+
+2 phase commit is good but not efficient
+
+after update local db 
+write 1 event to local db or file system
+let other node search and redo the event
+
+mysql binary log
+redis AOF
+

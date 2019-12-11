@@ -1,0 +1,31 @@
+how to consider data consitentcy in distributed system
+1.accept inconsistency when possible
+2.make operation reversible and idempotent
+
+3.change single datasource at the time
+
+4.saga-compensate reconcile
+
+
+
+1.two phase commit
+    create trasaction id
+    1.prepare check trasaction can work then lock
+    waiting response
+    2.commit commit trasaction
+    waiting response
+
+    set timeout
+
+    a:strong consitentcy
+    dis:slow lots of lantency
+
+2.three phase commit 
+    1.can commit
+    2.pre commit
+    3.do commit
+
+    easy to replace for new node when spf
+
+
+3.saga

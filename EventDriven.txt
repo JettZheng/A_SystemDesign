@@ -1,0 +1,29 @@
+Publisher && Subcriber 
+    1.Decoupling
+    2.Simplify Interaction
+    3.Easy to Scale
+
+    1.poor consistency (across transcation)
+
+Event Driven
+
+    1.build the event bus
+        1.Decoupling
+
+        1.Difficult to know design flow (event bus)
+    1.Each Service save event in local db from event bus
+        1.Availibility
+        2.Easy Roll-back (log event and timestamp; debug one by one)
+        3.Easy for replace service or add different service(just copy event db)
+        4.Transaction guarantee at least once,service receive the event
+
+        1. Consistency down
+
+
+
+
+
+How to decide Event Driven or Request/Response 
+
+1.someone needs to know events
+2.just ask server for something

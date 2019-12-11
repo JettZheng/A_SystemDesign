@@ -1,0 +1,51 @@
+Why ?
+1.User Experience
+2.Security
+3.Operation cost (pay as u go||auto scale)
+
+How ?
+1.Token Bucket
+    1. Fetch Token
+    2. Update Token
+example:rate 5 request/min
+    Redis: 
+    key:timestamp value：token
+    check length of hset
+    time delta more than min: refill token with 5
+
+2.Leaky Bucket
+    Use FIFO Queue
+    max request is length of Queue
+
+3.Fixed Window Counter
+    One minute we count the counter
+    dis: not stable
+
+4.Sliding Logs
+    last minute counter
+    dis: space will cost about rate * users
+
+5.Sliding Window Couter
+    last minute couter
+    example: 100req/min
+    timerange - request couter1
+    timerange - request couter2
+    timerange - request couter3
+    timerange - request couter4
+
+    less minute 
+    couter1 + couter2 + couter3 + couter 4 ? rate
+
+
+
+Distributed System
+1.Inconsistency  sticky session (user always go to one way)
+2.race condition lock
+
+Optimaize
+1.loose rate limit not exactly rate limit
+2.save redis into local memory of Rate limiter use (thread do sync)
+avoid call to redis everytime
+
+
+
